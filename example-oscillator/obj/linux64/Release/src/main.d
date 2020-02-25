@@ -560,7 +560,7 @@ obj/linux64/Release/src/main.o: \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/Interpolation.hpp \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/Buffer.hpp \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/TSine.hpp \
- /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/../../external/dr_wav.h \
+ /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/../../external/dr_wav.h \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/Biquad.hpp \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/Buffer.hpp \
  /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/BufferPlayer.hpp \
@@ -1751,7 +1751,7 @@ obj/linux64/Release/src/main.o: \
 
 /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/TSine.hpp:
 
-/home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/../../external/dr_wav.h:
+/home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/../../external/dr_wav.h:
 
 /home/anderson/Documents/of_v0.11.0_linux64gcc6_release/addons/ofxPedal/libs/Pedal/include/pedal/Biquad.hpp:
 
