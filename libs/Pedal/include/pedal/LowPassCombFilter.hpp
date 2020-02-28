@@ -3,7 +3,7 @@
 
 #include "pedal/CircularBuffer.hpp"
 #include "pedal/LowPass.hpp"
-
+#include "math.h"
 /*
 This is the same as the comb filter, 
 except for a lowpass filter in the 

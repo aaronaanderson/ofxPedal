@@ -13,7 +13,7 @@ T clamp(T input, U lowerBound, Z upperBound){
 }
 */
 float pedalSinc(const float phase){
-    return std::sin(phase)/phase;
+    return sin(phase)/phase;
 }
 float rangedRandom(float minimum, float maximum){
   //find an initial random value

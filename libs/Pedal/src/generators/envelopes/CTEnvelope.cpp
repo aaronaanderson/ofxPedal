@@ -4,10 +4,12 @@
 //=========================================================
 CTEnvelope::CTEnvelope(){
  setup(100, 40, 0.7, 400);//simple default values
+ currentState = states::OFF;
 }
 
 CTEnvelope::CTEnvelope(float initialAttack, float initialDecay, float initialSustain, float initialRelease){
   setup(initialAttack, initialDecay, initialSustain, initialRelease);
+  currentState = states::OFF;
 }
 
 CTEnvelope::~CTEnvelope(){//deconstructor
@@ -25,7 +27,7 @@ void CTEnvelope::setup(float newAttack, float newDecay, float newSustain, float 
   setRelease(newRelease);
   currentSample = 0.0;
   currentState = states::OFF;
-  currentMode = modes::ADSR;
+  currentMode = Modes::ADSR;
 }
 
 float CTEnvelope::generateSample(){//generate a single sample
@@ -97,7 +99,7 @@ float CTEnvelope::generateSample(){//generate a single sample
       switch(currentState){
         case OFF:
           if(trigger){
-              currentState = ATTACK;
+            currentState = ATTACK;
           }
         break;
         case ATTACK://initial portion of a 'note'
@@ -172,7 +174,7 @@ bool CTEnvelope::isBusy(){
   return false;//for windows compiler, should never happen
 }
 
-void CTEnvelope::setMode(modes newMode){currentMode = newMode;}
+void CTEnvelope::setMode(Modes newMode){currentMode = newMode;}
 void CTEnvelope::setAttack(float newAttack){//any positive value
   attack = newAttack;
   calculateIncrement(ATTACK);//changing value requires recalculating increment
@@ -190,6 +192,7 @@ void CTEnvelope::setSustain(float newSustain){//amplitude from 0.0 to 1.0
 }
 void CTEnvelope::setRelease(float newRelease){//any positive value
   release = newRelease;
+  if(currentMode == Modes::AR){sustain = 1.0f;}
   calculateIncrement(RELEASE);//changing vale requires recalculating increment
 }
 void CTEnvelope::setTrigger(bool newTrigger){trigger = newTrigger;}
