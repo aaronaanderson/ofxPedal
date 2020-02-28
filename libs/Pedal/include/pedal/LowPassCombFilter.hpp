@@ -1,9 +1,11 @@
 #ifndef LowPassCombFilter_hpp
 #define LowPassCombFilter_hpp
 
+#define _USE_MATH_DEFINES 
+#include <cmath>
 #include "pedal/CircularBuffer.hpp"
 #include "pedal/LowPass.hpp"
-#include "math.h"
+
 /*
 This is the same as the comb filter, 
 except for a lowpass filter in the 
