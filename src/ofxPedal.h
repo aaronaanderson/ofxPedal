@@ -32,5 +32,6 @@
 #include "WTSine.hpp"
 #include "WTSquare.hpp"
 #include "WTTriangle.hpp"
+#include "RMS.hpp"
 
 #endif
