@@ -52,16 +52,15 @@ class SmoothValue{
     calculateCoefficients();//calculate a and b
   }
   void setTarget(T newTarget){targetValue = newTarget;}
-  T getCurrentValue(){return currentValue;}
+  T getCurrentValue(){return z;}
   T getTargetValue(){return targetValue;}
 
   private:
   void calculateCoefficients(){//called only when 'setTime' is called (and in constructor)
-    a = exp(-M_2_PI / (arrivalTime * 0.001f * pdlSettings::sampleRate));//rearranged lpf coeff calculations
+    a = exp(-(M_PI * 2) / (arrivalTime * 0.001f * pdlSettings::sampleRate));//rearranged lpf coeff calculations
     b = 1.0f - a;
   }
   T targetValue;//what is the destination (of type T, determind by implementation)
-  T currentValue;//how close to the destination? (output value)
   float arrivalTime;//how long to take
   float a,b;//coefficients
   T z;//storage for previous value

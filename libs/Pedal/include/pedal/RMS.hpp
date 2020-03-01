@@ -24,7 +24,7 @@ class RMS{
 };
 
 inline float RMS::process(float input){
-  sampleCounter%samplesToAverage;//wrap the index
+  sampleCounter = sampleCounter%samplesToAverage;//wrap the index
   //subtract what WAS in the buffer first
   runningTotal -= sampleBuffer.getSample(writeIndex);
   //add its replacement to the total, then to buffer

@@ -6,6 +6,7 @@ RMS::RMS(int samplePeriod){//how many samples to average
   runningTotal = 0.0f;//c
   writeIndex = 0;
   periodReciprocal = 1.0f / (float)samplesToAverage;
+  currentSample = 0.0f;
   //set the smoother time to sample period
 }
 
