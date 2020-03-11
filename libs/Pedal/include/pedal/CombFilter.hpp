@@ -1,10 +1,7 @@
 #ifndef CombFilter_hpp
 #define CombFilter_hpp
 
-#define _USE_MATH_DEFINES 
-#include <cmath>
 #include "CircularBuffer.hpp"//used for delay line
-
 
 /* Filter Diagram
 intput__+___[DELAY]_____output

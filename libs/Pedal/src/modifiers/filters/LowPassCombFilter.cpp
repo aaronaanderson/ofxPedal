@@ -4,7 +4,7 @@
 LowPassCombFilter::LowPassCombFilter(float maxDelay, float initialFrequency){
   delayLine.setDuration(maxDelay);
   filter.setFrequency(initialFrequency);
-  feedBackGain = 0.7f;
+  feedBackGain = 0.95f;
   delayTime = 100.0f;
 }
 //Core functionality of class=========================
@@ -30,7 +30,7 @@ void LowPassCombFilter::setFeedBackGain(float newFBGain){
 void LowPassCombFilter::setDelayByFrequency(float frequency){
   //convert from frequency to period, then multiply by sampling rate
   //TODO revisit this with a fresh brain
-  delayTime = (pdlSettings::sampleRate)/(frequency*M_PI*2.0f);//delayTime in MS
+  delayTime = (pdlSettings::sampleRate)/(frequency*M_PI_2);//delayTime in MS
 }
 void LowPassCombFilter::setMaxDelayTime(float newMaxDelay){//maximum available delay (don't use more than you need)
   delayLine.setDuration(newMaxDelay);

@@ -1,8 +1,7 @@
 #ifndef LowPass_hpp
 #define LowPass_hpp
 
-#define _USE_MATH_DEFINES 
-#include <cmath>
+#include "math.h"
 #include "pdlSettings.hpp"
 #include "iostream"
 
@@ -10,8 +9,10 @@ class LowPass{//One pole low pass filter
   public:
   LowPass(float frequency = 1000.0f);//default constructor
   inline float process(float input);//per sample function
+  
   float getSample();//simple retrieval w/o processing
   void setFrequency(float newFrequency);//calculates new coefficients
+  
   private:
   float currentSample;//storage for retrieval, and previous sample
   float frequency;//cutoff frequency
@@ -23,6 +24,5 @@ inline float LowPass::process(float input){
   //of this expression is leftover from last call
   //It is effectively 'previousSample'
   currentSample = (a*input) - (b*currentSample);
-  return currentSample;
 }
 #endif

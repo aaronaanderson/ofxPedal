@@ -1,8 +1,7 @@
 #ifndef HighPass_hpp
 #define HighPass_hpp
 
-#define _USE_MATH_DEFINES 
-#include <cmath>
+#include "math.h"
 #include "pdlSettings.hpp"
 #include "iostream"
 
@@ -23,6 +22,5 @@ inline float HighPass::process(float input){
   //of this expression is leftover from last call
   //It is effectively 'previousSample'
   currentSample = (a*input) - (b*currentSample);
-  return currentSample;
 }
 #endif

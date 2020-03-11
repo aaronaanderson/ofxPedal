@@ -1,8 +1,6 @@
 #ifndef LowPassCombFilter_hpp
 #define LowPassCombFilter_hpp
 
-#define _USE_MATH_DEFINES 
-#include <cmath>
 #include "pedal/CircularBuffer.hpp"
 #include "pedal/LowPass.hpp"
 
@@ -19,7 +17,6 @@ class LowPassCombFilter{
   float process(float input);
   float getFeedBackDelayTime();
   float getFeedBackGain();
-  float getFeedForwardGain();
   float getMaxDelayTime();
   float getFilterFrequency();
   void setFilterFrequency(float newFrequency);
@@ -27,7 +24,6 @@ class LowPassCombFilter{
   void setDelayByFrequency(float frequency);
   void setFeedBackGain(float newFBGain);
   void setMaxDelayTime(float newMaxDelay);
-  
   private:
   float currentSample;
   CircularBuffer delayLine;

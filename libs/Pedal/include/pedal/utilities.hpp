@@ -2,15 +2,18 @@
 #define utilities_hpp
 
 #include "stdlib.h"
-#include "math.h"
+#define _USE_MATH_DEFINES
+#include <cmath>
 #include "pdlSettings.hpp"
 #include "algorithm"
 
+#define sqrt2o2 = 
 float msToSamples(float timeInMS);
 float secondsToSamples(float timeInSeconds);
 float samplesToMS(float samples);
 float mtof(float midiValue);
-
+//temporary stereo panner until spatialization system is added
+void panStereo(float input, float position, float* outputFrame);
 //void normalize(float* inputBuffer, int bufferSize, float min, float max);//normalize data in place
 float rangedRandom(float minimum, float maximum);
 
@@ -42,6 +45,7 @@ class SmoothValue{
   SmoothValue(float initialTime = 50.0f){//how much time, in ms, does it take to arrive (or approach target value)
     arrivalTime = initialTime;//store the input value (default to 50ms)
     calculateCoefficients();//calculate a and b (it is a lowpass filter)
+    z = 0.0f;
   }
   inline T process(){//this function will be called per-sample on the data
     z = (targetValue * b) + (z * a);//when evaluated, z is the 'previous z' (it is leftover from last execution)
@@ -57,10 +61,11 @@ class SmoothValue{
 
   private:
   void calculateCoefficients(){//called only when 'setTime' is called (and in constructor)
-    a = exp(-(M_PI * 2) / (arrivalTime * 0.001f * pdlSettings::sampleRate));//rearranged lpf coeff calculations
+    a = std::exp(-(M_PI * 2) / (arrivalTime * 0.001f * pdlSettings::sampleRate));//rearranged lpf coeff calculations
     b = 1.0f - a;
   }
   T targetValue;//what is the destination (of type T, determind by implementation)
+  T currentValue;//how close to the destination? (output value)
   float arrivalTime;//how long to take
   float a,b;//coefficients
   T z;//storage for previous value
